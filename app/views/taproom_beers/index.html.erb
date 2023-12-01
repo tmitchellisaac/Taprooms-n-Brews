@@ -1,0 +1,9 @@
+<h1> Beers offered </h1>
+
+<% @beers.each do |beer|%>
+<h3><%= beer.name %></h3>
+<p> Style: <%= beer.style %></p>
+<p> ABV: <%= beer.abv %>%</p>
+<p> Price: $<%= '%.2f'% (beer.price/100) %></p>
+<p> <%= "Award Winner" if beer.medal_winner %></p>
+<% end %>
