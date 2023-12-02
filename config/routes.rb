@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   # root "articles#index"
   get "/", to: "welcome#index"
 
+  get "taprooms/new", to: "taprooms#new"
+  post "taprooms", to: "taprooms#create"
   get "/taprooms", to: "taprooms#index"
   get "/taprooms/:id", to: "taprooms#show"
   get "/beers", to: "beers#index"
@@ -12,4 +14,5 @@ Rails.application.routes.draw do
   get "/beers/:id", to: "beers#show"
 
   get "/taprooms/:taproom_id/beers", to: "taproom_beers#index"
+
 end

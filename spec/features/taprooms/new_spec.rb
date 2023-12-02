@@ -1,4 +1,3 @@
-
 require 'rails_helper'
 
 RSpec.describe "taproom index page", type: :feature do
@@ -75,57 +74,47 @@ RSpec.describe "taproom index page", type: :feature do
       price: 800)
   end
 
-  it "can see all taprooms and their attributes" do
-    # For each parent table
-    # As a visitor
-    # When I visit '/parents'
-    # Then I see the name of each parent record in the system
-
-    #arrange // given
-  
-    #act// when
+  it " has a create new Taproom page" do
     visit "/taprooms"
+    
+    expect(page).to have_link("Create New Taproom", :href=>'/taprooms/new')
 
-    #assert// then
+    click_link("New Taproom", :href=>'/taprooms/new')
+
+    expect(page).to have_content("Create New Taproom")
+
+    fill_in "taproom_name", with: "Empourium Brewing Company"
+    fill_in "taproom_address", with: "4385 W 42nd Ave, Denver, CO 80212"
+    fill_in "taproom_website", with: "theempourium.com"
+    fill_in "taproom_phone", with: "720-361-2973"
+    fill_in "established", with: "2019"
+    fill_in "number_of_employees", with: "12"
+    fill_in "serving_capacity", with: "60"
+    check "offers_food"
+
+    click_button "Create Taproom"
+    
+    expect(page).to have_content("All Taprooms")
     expect(page).to have_content(@call_to_arms.name)
     expect(page).to have_content(@ratio.name)
-  end
+    expect(page).to have_content(@dbc.name)
+    expect(page).to have_content("Empourium Brewing Company")
 
-  describe "sort taproom index by created_by attribute" do
-    it "sorts by create_by" do
-      # As a visitor
-      # When I visit the parent index,
-      # I see that records are ordered by most recently created first
-      # And next to each of the records I see when it was created
-      visit "/taprooms"
-
-      expect(@call_to_arms.name).to appear_before(@ratio.name)
-
-      expect(page).to have_content(@call_to_arms.created_at)
-      expect(page).to have_content(@ratio.created_at)
-    end
-  end
-
-
-  describe "parent index located at the top of every page" do
-    it "has a parent index link on top of every page" do
     # As a visitor
-    # When I visit any page on the site
-    # Then I see a link at the top of the page that takes me to the Child Index
-    visit "/"
-    expect(page).to have_link("Taprooms", :href=>'/taprooms')
+    # When I visit the Parent Index page
+    # Then I see a link to create a new Parent record, "New Parent"
+    # When I click this link
+    # Then I am taken to '/parents/new' where I  see a form for a new parent record
+    # When I fill out the form with a new parent's attributes:
+    # And I click the button "Create Parent" to submit the form
+    # Then a `POST` request is sent to the '/parents' route,
+    # a new parent record is created,
+    # and I am redirected to the Parent Index page where I see the new Parent displayed.
 
-    visit "/beers"
-    expect(page).to have_link("Taproom List", :href=>'/taprooms')
-
-    visit "/taprooms/#{@ratio.id}"
-    expect(page).to have_link("Taproom List", :href=>'/taprooms')
-
-    visit "/beers/#{@rare_trait.id}"
-    expect(page).to have_link("Taproom List", :href=>'/taprooms')
-
-    visit "/taprooms/#{@dbc.id}/beers"
-    expect(page).to have_link("Taproom List", :href=>'/taprooms')
-    end 
   end
+
+
+
+
+
 end

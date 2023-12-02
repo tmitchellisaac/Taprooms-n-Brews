@@ -10,7 +10,7 @@
 call_to_arms = Taproom.create!(name: "Call to Arms Brewing", address: "4526 Tennyson St, Denver CO 80212", website: "calltoarmsbrewing.com", phone_number: "720-328-8258", established: "2014", number_of_employees: 7, serving_capacity: 90, offers_food: false)
 ratio = Taproom.create!(name: "Ratio Beerworks", address: "2920 Larimer St, Denver, CO 80205", website: "ratiobeerworks.com", phone_number: "303-997-8288", established: "2014", number_of_employees: 12, serving_capacity: 100, offers_food: false)
 cerebral = Taproom.create!(name: "Cerebral Brewing", address: "1477 Monroe St, Denver, CO 80206", website: "cerebralbrewing.com", phone_number: "303-865-7341", established: "2015", number_of_employees: 8, serving_capacity: 70, offers_food: false)
-dbc = Taproom.create!(name: "Denver Beer Co", address: "1695 Platte St, Denver, CO 80202", website: "denverbeerco.com", phone_number: "720-279-8247", established: "2011", number_of_employees: 15, serving_capacity: 150, offers_food: false)
+dbc = Taproom.create!(name: "Denver Beer Co", address: "1695 Platte St, Denver, CO 80202", website: "denverbeerco.com", phone_number: "720-279-8247", established: "2011", number_of_employees: 15, serving_capacity: 150, offers_food: true)
 hogshead = Taproom.create!(name: "Hogshead Brewing", address: "4460 West 29th Ave, Denver, CO 80212", website: "hogshead54.com", phone_number: "303-495-3105", established: "2012", number_of_employees: 6, serving_capacity: 45, offers_food: true)
 
 

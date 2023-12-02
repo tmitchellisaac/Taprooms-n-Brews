@@ -1,13 +1,20 @@
+<h4><a href="/beers">Full Beer List</a>  &nbsp; <a href="/taprooms">Taproom List</a></h4>
 
-
-<h1> <%=@taproom.name%> </h1><br>
+<h1> <%=@taproom.name%> </h1>
+<h4><a href="/taprooms/<%=@taproom.id%>/beers">Beers Offered</a></h4>
 <p> Address: <%=@taproom.address %></p>
 <p> Website: <%=@taproom.website %></p>
 <p> Phone Number: <%=@taproom.phone_number %></p>
 <p> Established: <%=@taproom.established %></p>
 <p> Number of Employees: <%=@taproom.number_of_employees %></p>
 <p> Max Serving Capacity: <%=@taproom.serving_capacity %> </p>
-<p> Serves Food: <%=@taproom.offers_food%> </p>
+<p> <%=if @taproom.offers_food 
+      "Serves Food" 
+    else 
+      "No Food Offered" 
+    end %> </p>
+<p>(<%=@taproom.beers.length%> Beers Offered Here) </p>
+
 
 <%# 
  t.string :name

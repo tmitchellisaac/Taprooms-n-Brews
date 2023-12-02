@@ -1,4 +1,3 @@
-
 require 'rails_helper'
 
 RSpec.describe "taproom index page", type: :feature do
@@ -73,59 +72,5 @@ RSpec.describe "taproom index page", type: :feature do
       medal_winner: false, 
       abv: 5.9, 
       price: 800)
-  end
-
-  it "can see all taprooms and their attributes" do
-    # For each parent table
-    # As a visitor
-    # When I visit '/parents'
-    # Then I see the name of each parent record in the system
-
-    #arrange // given
-  
-    #act// when
-    visit "/taprooms"
-
-    #assert// then
-    expect(page).to have_content(@call_to_arms.name)
-    expect(page).to have_content(@ratio.name)
-  end
-
-  describe "sort taproom index by created_by attribute" do
-    it "sorts by create_by" do
-      # As a visitor
-      # When I visit the parent index,
-      # I see that records are ordered by most recently created first
-      # And next to each of the records I see when it was created
-      visit "/taprooms"
-
-      expect(@call_to_arms.name).to appear_before(@ratio.name)
-
-      expect(page).to have_content(@call_to_arms.created_at)
-      expect(page).to have_content(@ratio.created_at)
-    end
-  end
-
-
-  describe "parent index located at the top of every page" do
-    it "has a parent index link on top of every page" do
-    # As a visitor
-    # When I visit any page on the site
-    # Then I see a link at the top of the page that takes me to the Child Index
-    visit "/"
-    expect(page).to have_link("Taprooms", :href=>'/taprooms')
-
-    visit "/beers"
-    expect(page).to have_link("Taproom List", :href=>'/taprooms')
-
-    visit "/taprooms/#{@ratio.id}"
-    expect(page).to have_link("Taproom List", :href=>'/taprooms')
-
-    visit "/beers/#{@rare_trait.id}"
-    expect(page).to have_link("Taproom List", :href=>'/taprooms')
-
-    visit "/taprooms/#{@dbc.id}/beers"
-    expect(page).to have_link("Taproom List", :href=>'/taprooms')
-    end 
   end
 end
