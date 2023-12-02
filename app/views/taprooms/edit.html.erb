@@ -1,0 +1,32 @@
+<h1>Edit a Taproom's Info</h1>
+
+<form action="/taprooms/<%= @taproom.id %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="_method" value="PATCH" />
+
+  <label for="taproom_name">Taproom Name:</label><br>
+  <input type='text' name='taproom_name' value="<%= @taproom.name %>"/><br/>
+ 
+  <label for="taproom_address">Taproom Address:</label><br>
+  <input type='text' name='taproom_address' value="<%= @taproom.address %>"/><br/>
+  
+  <label for="taproom_website">Taproom Website:</label><br>
+  <input type='text' name='taproom_website' value="<%= @taproom.website %>"/><br/>
+  
+  <label for="taproom_phone">Taproom Phone Number:</label><br>
+  <input type='text' name='taproom_phone' value="<%= @taproom.phone_number %>"/><br/>
+  
+  <label for="established">Established:</label><br>
+  <input type='text' name='established' value="<%= @taproom.established %>"/><br/>
+  
+  <label for="Number of Employees">Number of Employees:</label><br>
+  <input type='text' name='number_of_employees' value="<%= @taproom.number_of_employees %>"/><br/>
+  
+  <label for="Serving Capacity">Serving Capacity:</label><br>
+  <input type='text' name='serving_capacity' value="<%= @taproom.serving_capacity %>"/><br/>
+  
+  <input type="checkbox" id="offers_food" name="offers_food" value=true>
+  <label for="offers_food"> Offers Food?</label><br>
+
+  <input type='submit' value="Edit Taproom"/>
+</form>

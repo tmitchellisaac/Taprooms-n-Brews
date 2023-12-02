@@ -73,4 +73,31 @@ RSpec.describe "taproom index page", type: :feature do
       abv: 5.9, 
       price: 800)
   end
+
+
+  it "has an edit page to edit taproom info" do
+
+    visit "/taprooms/#{@ratio.id}"
+
+    expect(page).to have_link("Edit Taproom", :href=>"/taprooms/#{@ratio.id}/edit")
+
+    click_link("Edit Taproom", :href=>"/taprooms/#{@ratio.id}/edit")
+
+    expect(page).to have_content("Edit a Taproom's Info")
+
+    fill_in "number_of_employees", with: 56
+    fill_in "established", with: "2012"
+    fill_in "serving_capacity", with: 300
+    fill_in "taproom_name", with: "Ratio Brewery"
+
+    click_button "Edit Taproom"
+
+    expect(page).to have_content("Ratio Brewery")
+    expect(page).to have_content(300)
+    expect(page).to have_content(56)
+    expect(page).to have_content("2012")
+
+  end
+
+
 end
