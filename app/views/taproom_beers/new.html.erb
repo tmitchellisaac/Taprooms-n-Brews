@@ -1,0 +1,24 @@
+<h1>Create New Beer</h1>
+
+
+<form action="/taprooms/<%=@taproom.id%>/beers" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  
+  <label for="name">Name:</label><br>
+  <input type='text' name='name'/><br/>
+
+  <label for="style">Style:</label><br>
+  <input type='text' name='style'/><br/>
+
+  <label for="abv">ABV:</label><br>
+  <input type='text' name='abv'/><br/>
+
+  <label for="price">Price:</label><br>
+  <input type='text' name='price'/><br/>
+
+  <input type="checkbox" id="medal_winner" name="medal_winner" value=true>
+  <label for="medal_winner"> Medal Winner?</label><br>
+
+  <input type='submit' value="Create Beer"/>
+
+</form>

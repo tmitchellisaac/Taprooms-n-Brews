@@ -14,7 +14,11 @@ Rails.application.routes.draw do
   patch '/taprooms/:id', to: 'taprooms#update'
   get "/beers", to: "beers#index"
   get "/beers/:id", to: "beers#show"
-  
+  get "/beers/:beer_id/edit", to: "beers#edit"
+  patch "beers/:beer_id", to: "beers#update"
+
+  get "/taprooms/:taproom_id/beers/new", to: "taproom_beers#new"
+  post "/taprooms/:taproom_id/beers", to: "taproom_beers#create"
   get "/taprooms/:taproom_id/beers", to: "taproom_beers#index"
 
 end
