@@ -4,20 +4,20 @@
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <input type="hidden" name="_method" value="PATCH" />
   
-  <label for="name">Name:</label><br>
+  <label for='name'>Name:</label><br>
   <input type='text' name='name' value="<%= @beer.name %>"/><br/>
 
-  <label for="style">Style:</label><br>
+  <label for='style'>Style:</label><br>
   <input type='text' name='style' value="<%= @beer.style %>"/><br/>
 
-  <label for="abv">ABV:</label><br>
+  <label for='abv'>ABV:</label><br>
   <input type='text' name='abv' value="<%= @beer.abv %>"/><br/>
 
-  <label for="price">Price:</label><br>
+  <label for='price'>Price:</label><br>
   <input type='text' name='price' value="<%= @beer.price %>"/><br/>
 
-  <input type="checkbox" id="medal_winner" name="medal_winner" value=true>
-  <label for="medal_winner"> Medal Winner?</label><br>
+  <%# <input type="checkbox" id="medal_winner" name="medal_winner" value=true>
+  <label for="medal_winner"> Medal Winner?</label><br> %>
 
   <input type='submit' value="Update Beer Info"/>
 

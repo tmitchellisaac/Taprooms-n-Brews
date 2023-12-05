@@ -8,7 +8,8 @@
 <h3> <%=taproom.name%></h3>
  <p style="font-size:10%;"><%=taproom.created_at%> </p> </p>
 <p>Est. <%= taproom.established %> </p>
-<h6><a href="/taprooms/<%=taproom.id%>">Taproom Page</a></h6>
+<a href="/taprooms/<%=taproom.id%>">Taproom Page</a>
+<a href="/taprooms/<%=taproom.id%>/edit">Edit Taproom</a>
 
 <% end %>
 

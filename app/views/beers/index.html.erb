@@ -8,6 +8,7 @@
 <p> Style: <%= beer.style %><br></p>
 <p> Price: $<%= '%.2f'% (beer.price/100) %><br></p>
 <p> ABV: <%= beer.abv %>% <br></p>
-<p><%= "**Award Winner**" if beer.medal_winner %><br></p>
+<p><%= "**Award Winner**" if beer.medal_winner %><br>
+<a href="/beers/<%=beer.id%>/edit">Edit Beer</a></p>
 <% end %>
 

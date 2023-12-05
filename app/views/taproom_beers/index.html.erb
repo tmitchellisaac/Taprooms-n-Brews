@@ -1,5 +1,7 @@
 <h4><a href="/beers">Full Beer List</a>  &nbsp; <a href="/taprooms">Taproom List</a></h4>
 <a href="/taprooms/<%=@taproom.id%>/beers/new">Create New Beer</a>
+<%= link_to "Alphabetize List", "/taprooms/#{@taproom.id}/beers?sort_code=alpha"%>
+
 
 <h1> Beers offered </h1>
 
@@ -8,5 +10,7 @@
 <p> Style: <%= beer.style %></p>
 <p> ABV: <%= beer.abv %>%</p>
 <p> Price: $<%= '%.2f'% (beer.price/100) %></p>
-<p> <%= "Award Winner" if beer.medal_winner %></p>
+<p> <%= "Award Winner" if beer.medal_winner %>
+<a href="/beers/<%=beer.id%>/edit">Edit Beer</a></p>
+
 <% end %>

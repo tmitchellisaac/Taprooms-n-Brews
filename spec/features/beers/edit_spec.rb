@@ -1,4 +1,3 @@
-
 require 'rails_helper'
 
 RSpec.describe "taproom index page", type: :feature do
@@ -75,69 +74,31 @@ RSpec.describe "taproom index page", type: :feature do
       price: 800)
   end
 
-  it "can see all taprooms and their attributes" do
-    # For each parent table
-    # As a visitor
-    # When I visit '/parents'
-    # Then I see the name of each parent record in the system
-
-    #arrange // given
-  
-    #act// when
-    visit "/taprooms"
-
-    #assert// then
-    expect(page).to have_content(@call_to_arms.name)
-    expect(page).to have_content(@ratio.name)
-  end
-
-  describe "sort taproom index by created_by attribute" do
-    it "sorts by create_by" do
-      # As a visitor
-      # When I visit the parent index,
-      # I see that records are ordered by most recently created first
-      # And next to each of the records I see when it was created
-      visit "/taprooms"
-
-      expect(@call_to_arms.name).to appear_before(@ratio.name)
-
-      expect(page).to have_content(@call_to_arms.created_at)
-      expect(page).to have_content(@ratio.created_at)
-    end
-  end
-
-
-  describe "parent index located at the top of every page" do
-    it "has a parent index link on top of every page" do
-    # As a visitor
-    # When I visit any page on the site
-    # Then I see a link at the top of the page that takes me to the Child Index
-    visit "/"
-    expect(page).to have_link("Taprooms", :href=>'/taprooms')
-
-    visit "/beers"
-    expect(page).to have_link("Taproom List", :href=>'/taprooms')
-
-    visit "/taprooms/#{@ratio.id}"
-    expect(page).to have_link("Taproom List", :href=>'/taprooms')
-
+  it "has a link to update beer attributes" do
     visit "/beers/#{@rare_trait.id}"
-    expect(page).to have_link("Taproom List", :href=>'/taprooms')
 
-    visit "/taprooms/#{@dbc.id}/beers"
-    expect(page).to have_link("Taproom List", :href=>'/taprooms')
-    end 
+    expect(page).to have_link("Edit Beer Info", :href=> "/beers/#{@rare_trait.id}/edit")
+
+    click_link("Edit Beer Info", :href=> "/beers/#{@rare_trait.id}/edit")
+
+    expect(page).to have_content("Edit a Beer's Info")
+
+    fill_in "name", with: "Rarer Trait"
+    fill_in "style", with: "DIPA"
+    fill_in "abv", with: 7.5
+    fill_in "price", with: 900
+    # check "medal_winner"
+    click_button("Update Beer Info")
+
+    expect(page).to have_content("Rarer Trait")
+    expect(page).to have_content("DIPA")
+    expect(page).to have_content(7.5)
+
   end
 
-  describe "link to taproom edit page next to each taproom on index page" do
-    it " see above" do
-      visit "/taprooms"
 
-    expect(page).to have_link("Edit Taproom", :href=>"/taprooms/#{@ratio.id}/edit")
-    expect(page).to have_link("Edit Taproom", :href=>"/taprooms/#{@dbc.id}/edit")
-    expect(page).to have_link("Edit Taproom", :href=>"/taprooms/#{@hogshead.id}/edit")
-    expect(page).to have_link("Edit Taproom", :href=>"/taprooms/#{@cerebral.id}/edit")
-    end
-  end
-  
+
+
+
+
 end

@@ -1,8 +1,13 @@
 class TaproomBeersController < ApplicationController
 
   def index
-    @taproom = Taproom.find(params[:taproom_id])
-    @beers = @taproom.beers
+    if params[:sort_code] == "alpha"
+      @taproom = Taproom.find(params[:taproom_id])
+      @beers = @taproom.beers.order(:name)
+    else
+      @taproom = Taproom.find(params[:taproom_id])
+      @beers = @taproom.beers
+    end
   end
 
   def new
@@ -22,4 +27,12 @@ class TaproomBeersController < ApplicationController
 
     redirect_to "/taprooms/#{@taproom.id}/beers"
   end
+
+  def alphabetize
+    @taproom = Taproom.find(params[:taproom_id])
+    @beers = @taproom.beers.sort(:name)
+
+    redirect_to "/taprooms"
+  end
+
 end

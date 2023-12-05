@@ -22,11 +22,11 @@ class BeersController < ApplicationController
       abv: params[:abv],
       price: params[:price],
       medal_winner: params[:medal_winner],
-      taproom_id: params[:beer_id]
     })
+    
     beer.save
 
-    redirect_to "/beers/#{beer.id}"
+    redirect_to "/beers"
   end
 
 end

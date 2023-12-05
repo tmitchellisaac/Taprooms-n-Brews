@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   # root "articles#index"
   get "/", to: "welcome#index"
 
-  get "taprooms/new", to: "taprooms#new"
-  post "taprooms", to: "taprooms#create"
+  get "/taprooms/new", to: "taprooms#new"
+  post "/taprooms", to: "taprooms#create"
 
   get "/taprooms", to: "taprooms#index"
   get "/taprooms/:id", to: "taprooms#show"
@@ -15,10 +15,12 @@ Rails.application.routes.draw do
   get "/beers", to: "beers#index"
   get "/beers/:id", to: "beers#show"
   get "/beers/:beer_id/edit", to: "beers#edit"
-  patch "beers/:beer_id", to: "beers#update"
+  patch "/beers/:beer_id", to: "beers#update"
 
   get "/taprooms/:taproom_id/beers/new", to: "taproom_beers#new"
   post "/taprooms/:taproom_id/beers", to: "taproom_beers#create"
   get "/taprooms/:taproom_id/beers", to: "taproom_beers#index"
+
+  get "/taprooms/:taproom_id/beers/:sort_code" ,to: "taproom_beers#index"
 
 end
