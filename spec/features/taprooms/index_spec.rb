@@ -76,6 +76,7 @@ RSpec.describe "taproom index page", type: :feature do
   end
 
   it "can see all taprooms and their attributes" do
+    # User Story 1, Parent Index
     # For each parent table
     # As a visitor
     # When I visit '/parents'
@@ -93,6 +94,7 @@ RSpec.describe "taproom index page", type: :feature do
 
   describe "sort taproom index by created_by attribute" do
     it "sorts by create_by" do
+      # User Story 6, Parent Index sorted by Most Recently Created
       # As a visitor
       # When I visit the parent index,
       # I see that records are ordered by most recently created first
@@ -109,9 +111,10 @@ RSpec.describe "taproom index page", type: :feature do
 
   describe "parent index located at the top of every page" do
     it "has a parent index link on top of every page" do
-    # As a visitor
-    # When I visit any page on the site
-    # Then I see a link at the top of the page that takes me to the Child Index
+      # User Story 9, Parent Index Link
+      # As a visitor
+      # When I visit any page on the site
+      # Then I see a link at the top of the page that takes me to the Parent Index
     visit "/"
     expect(page).to have_link("Taprooms", :href=>'/taprooms')
 
@@ -131,12 +134,19 @@ RSpec.describe "taproom index page", type: :feature do
 
   describe "link to taproom edit page next to each taproom on index page" do
     it " see above" do
+      # User Story 17, Parent Update From Parent Index Page 
+      # As a visitor
+      # When I visit the parent index page
+      # Next to every parent, I see a link to edit that parent's info
+      # When I click the link
+      # I should be taken to that parent's edit page where I can update its information just like in User Story 12
+
       visit "/taprooms"
 
-    expect(page).to have_link("Edit Taproom", :href=>"/taprooms/#{@ratio.id}/edit")
-    expect(page).to have_link("Edit Taproom", :href=>"/taprooms/#{@dbc.id}/edit")
-    expect(page).to have_link("Edit Taproom", :href=>"/taprooms/#{@hogshead.id}/edit")
-    expect(page).to have_link("Edit Taproom", :href=>"/taprooms/#{@cerebral.id}/edit")
+      expect(page).to have_link("Edit Taproom", :href=>"/taprooms/#{@ratio.id}/edit")
+      expect(page).to have_link("Edit Taproom", :href=>"/taprooms/#{@dbc.id}/edit")
+      expect(page).to have_link("Edit Taproom", :href=>"/taprooms/#{@hogshead.id}/edit")
+      expect(page).to have_link("Edit Taproom", :href=>"/taprooms/#{@cerebral.id}/edit")
     end
   end
   

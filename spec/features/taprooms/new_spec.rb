@@ -75,6 +75,18 @@ RSpec.describe "taproom index page", type: :feature do
   end
 
   it " has a create new Taproom page" do
+    # User Story 11, Parent Creation 
+    # As a visitor
+    # When I visit the Parent Index page
+    # Then I see a link to create a new Parent record, "New Parent"
+    # When I click this link
+    # Then I am taken to '/parents/new' where I  see a form for a new parent record
+    # When I fill out the form with a new parent's attributes:
+    # And I click the button "Create Parent" to submit the form
+    # Then a `POST` request is sent to the '/parents' route,
+    # a new parent record is created,
+    # and I am redirected to the Parent Index page where I see the new Parent displayed.
+
     visit "/taprooms"
     
     expect(page).to have_link("Create New Taproom", :href=>'/taprooms/new')
@@ -99,18 +111,6 @@ RSpec.describe "taproom index page", type: :feature do
     expect(page).to have_content(@ratio.name)
     expect(page).to have_content(@dbc.name)
     expect(page).to have_content("Empourium Brewing Company")
-
-    # As a visitor
-    # When I visit the Parent Index page
-    # Then I see a link to create a new Parent record, "New Parent"
-    # When I click this link
-    # Then I am taken to '/parents/new' where I  see a form for a new parent record
-    # When I fill out the form with a new parent's attributes:
-    # And I click the button "Create Parent" to submit the form
-    # Then a `POST` request is sent to the '/parents' route,
-    # a new parent record is created,
-    # and I am redirected to the Parent Index page where I see the new Parent displayed.
-
   end
 
 

@@ -76,6 +76,15 @@ RSpec.describe "taproom index page", type: :feature do
 
   describe "it has a link to delete the beer" do
     it "has a link to delete beer" do
+      # User Story 20, Child Delete 
+      # As a visitor
+      # When I visit a child show page
+      # Then I see a link to delete the child "Delete Child"
+      # When I click the link
+      # Then a 'DELETE' request is sent to '/child_table_name/:id',
+      # the child is deleted,
+      # and I am redirected to the child index page where I no longer see this child
+      
       visit "/beers/#{@princess_yum_yum.id}"
 
       expect(page).to have_content("Princess Yum Yum")
@@ -88,6 +97,12 @@ RSpec.describe "taproom index page", type: :feature do
   end
 
   it "has a show page" do
+    # User Story 4, Child Show
+    # As a visitor
+    # When I visit '/child_table_name/:id'
+    # Then I see the child with that id including the child's attributes
+    # (data from each column that is on the child table)
+
     visit "/beers/#{@princess_yum_yum.id}"
 
     expect(page).to have_content("Princess Yum Yum")
@@ -97,5 +112,5 @@ RSpec.describe "taproom index page", type: :feature do
     expect(page).to have_content("Award Winner")
   end
 
-  
+
 end

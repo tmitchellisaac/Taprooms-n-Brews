@@ -12,5 +12,9 @@
 <p> Price: $<%= '%.2f'% (beer.price/100) %></p>
 <p> <%= "Award Winner" if beer.medal_winner %>
 <a href="/beers/<%=beer.id%>/edit">Edit Beer</a></p>
-
+<form action="/beers/<%=beer.id%>" method="POST">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="Delete <%=beer.name%>"/>
+  </form>
 <% end %>

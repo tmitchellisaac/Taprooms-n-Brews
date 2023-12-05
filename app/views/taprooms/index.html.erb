@@ -5,11 +5,20 @@
 <h1>All Taprooms</h1>
 
 <% @taprooms.each do |taproom|%>
-<h3> <%=taproom.name%></h3>
+<h2> <%=taproom.name%></h2>
  <p style="font-size:10%;"><%=taproom.created_at%> </p> </p>
 <p>Est. <%= taproom.established %> </p>
 <a href="/taprooms/<%=taproom.id%>">Taproom Page</a>
 <a href="/taprooms/<%=taproom.id%>/edit">Edit Taproom</a>
+<br>
+<br>
 
+<form action="/taprooms/<%=taproom.id%>" method="POST">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="Delete <%=taproom.name%>"/>
+  </form>
+  <br>
+  <br>
 <% end %>
 
