@@ -29,4 +29,10 @@ class BeersController < ApplicationController
     redirect_to "/beers"
   end
 
+  def destroy
+    beer = Beer.find(params[:id])
+    beer.destroy
+    
+    redirect_to "/beers"
+  end
 end

@@ -1,5 +1,11 @@
 <h4><a href="/beers">Full Beer List</a>  &nbsp; <a href="/taprooms">Taproom List</a> &nbsp; <a href="/taprooms/<%=@taproom.id%>/edit"> Edit Taproom</a></h4>
 
+ <form action="/taprooms/<%=@taproom.id%>" method="POST">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="Delete Taproom"/>
+  </form>
+
 <h1> <%=@taproom.name%> </h1>
 <h4><a href="/taprooms/<%=@taproom.id%>/beers">Beers Offered</a></h4>
 <p> Address: <%=@taproom.address %></p>
@@ -14,11 +20,3 @@
       "No Food Offered" 
     end %> </p>
 <p>(<%=@taproom.beers.length%> Beers Offered Here) </p>
-
-
-<%# 
- t.string :name
-      t.integer :number_of_employees
-      t.integer :max_beers_on_tap
-      t.integer :serving_capacity
-      t.boolean :offers_food %>

@@ -49,4 +49,10 @@ class TaproomsController < ApplicationController
     redirect_to "/taprooms/#{taproom.id}"
   end
 
+  def destroy
+    taproom = Taproom.find(params[:id])
+    taproom.destroy
+    
+    redirect_to "/taprooms"
+  end
 end

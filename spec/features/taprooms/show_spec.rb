@@ -69,4 +69,14 @@ RSpec.describe "taproom index page", type: :feature do
     end
   end
 
+  describe "delete a taproom" do
+    it "has a link to delete a taproom" do
+      visit "/taprooms/#{@ratio.id}"
+      
+      click_button "Delete Taproom"
+      
+      expect(page).to have_no_content("Ratio Beerworks")
+    end
+  end
+
 end

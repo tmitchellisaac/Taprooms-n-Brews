@@ -7,3 +7,9 @@
 <p> Price: $<%= '%.2f'% (@beer.price/100) %><br></p>
 <p> ABV: <%= @beer.abv %>% <br></p>
 <p> <%= "**Award Winner**" if @beer.medal_winner %><br></p>
+
+ <form action="/beers/<%=@beer.id%>" method="POST">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="Delete Beer"/>
+  </form>

@@ -332,4 +332,53 @@ RSpec.describe "taproom index page", type: :feature do
     end
   end
 
+
+  it "has a link to the beer's show page next to each beer" do
+    ratio = Taproom.create!(name: "Ratio Beerworks", 
+      address: "2920 Larimer St, Denver, CO 80205", 
+      website: "ratiobeerworks.com", 
+      phone_number: "303-997-8288", 
+      established: "2014", 
+      number_of_employees: 12, 
+      serving_capacity: 100, 
+      offers_food: false)
+
+    domestica = ratio.beers.create!(name: "Domestica", 
+      style: "American Golden Ale", 
+      medal_winner: false, 
+      abv: 4.9, price: 650)
+
+    cityscapes = ratio.beers.create!(name: "Cityscapes", 
+      style: "Mexican Lager", 
+      medal_winner: false, 
+      abv: 4.8, 
+      price: 650)
+
+    antidote = ratio.beers.create!(name: "Antidote", 
+      style: "West Coast IPA", 
+      medal_winner: false, 
+      abv: 7.0, 
+      price: 700)
+
+    king_of_carrot_flowers = ratio.beers.create!(name: "King of Carrot Flowers", 
+      style: "Carrot and Elderflower Saison", 
+      medal_winner: 
+      false, 
+      abv: 5.9, 
+      price: 800)
+
+    hold_steady = ratio.beers.create!(name: "Hold Steady", 
+      style: "Dark Scotch Ale", 
+      medal_winner: false, 
+      abv: 7.5, 
+      price: 800)
+
+    visit "/beers"
+
+    click_link("Beer's Page", :href=>"/beers/#{antidote.id}")
+
+    expect(page).to have_content("Antidote")
+    expect(page).to have_content("West Coast IPA")
+    expect(page).to have_content(7.00)
+  end
 end

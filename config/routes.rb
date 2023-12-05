@@ -23,4 +23,7 @@ Rails.application.routes.draw do
 
   get "/taprooms/:taproom_id/beers/:sort_code" ,to: "taproom_beers#index"
 
+  delete "/taprooms/:id", to: "taprooms#destroy"
+  delete "/beers/:id", to: "beers#destroy"
+
 end

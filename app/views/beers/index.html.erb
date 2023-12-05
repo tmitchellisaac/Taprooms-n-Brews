@@ -9,6 +9,7 @@
 <p> Price: $<%= '%.2f'% (beer.price/100) %><br></p>
 <p> ABV: <%= beer.abv %>% <br></p>
 <p><%= "**Award Winner**" if beer.medal_winner %><br>
+<a href="/beers/<%=beer.id%>">Beer's Page</a></p>
 <a href="/beers/<%=beer.id%>/edit">Edit Beer</a></p>
 <% end %>
 
