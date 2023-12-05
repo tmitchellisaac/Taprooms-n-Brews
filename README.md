@@ -1,7 +1,7 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Welcome to Taprooms 'n' Brews #
+(created from info on some breweries in the Denver area)
 
 Things you may want to cover:
 1. Use Ruby version 3.2.2 and Rails version 7.0.8
