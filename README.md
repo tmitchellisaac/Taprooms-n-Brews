@@ -3,7 +3,7 @@
 # Welcome to Taprooms 'n' Brews #
 (created from info on some breweries in the Denver area)
 
-Things you may want to cover:
+Things to get you started:
 1. Use Ruby version 3.2.2 and Rails version 7.0.8
 2. Database creation and seeding-
   -  there are seeds in the seed file that should create enough examples to start with, of both Taprooms and their Brews.
